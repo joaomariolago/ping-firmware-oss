@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://schema.omg.org/spec/UML/2.1">
+  <xmi:Documentation exporter="umbrello uml modeller 25.08.2 (Applications 25.08.2) http://umbrello.kde.org" exporterVersion="2.0.4"/>
+  <uml:Model xmi:id="m1" name="UML Model">
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="folder" name="folder"/>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="dataType" name="dataType"/>
+    <packagedElement xmi:type="uml:Stereotype" xmi:id="interface" name="interface"/>
+    <packagedElement xmi:type="uml:Model" xmi:id="Logical_View" name="Logical View" stereotype="folder">
+      <uml:Package xmi:id="Datatypes" name="Datatypes" stereotype="folder">
+        <packagedElement xmi:type="uml:DataType" xmi:id="uee19AMwF9rVN" name="char" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="u4wSXq6f7D0zV" name="int" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="ur5vEsj9FtK9r" name="float" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="upQjkqs2JxObc" name="double" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uboQSrRFAQiVk" name="bool" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uwolGFrsXODR1" name="string" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uhqtOpVNuk77Q" name="unsigned char" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uRmmfu3fnvaIF" name="signed char" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uFozrpnB4TgZQ" name="unsigned int" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uopaPKMZE0vmE" name="signed int" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="u5oAXgjX4UOiW" name="short int" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uFcoUo1B6jfuH" name="unsigned short int" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="usdTfnTOQHqyY" name="signed short int" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="ubNn8FDEfzM0a" name="long int" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="u5HDadBgoQawj" name="signed long int" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uVcrVshdtay8S" name="unsigned long int" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="usYwSLHot6uf5" name="long double" stereotype="dataType"/>
+        <packagedElement xmi:type="uml:DataType" xmi:id="uNQuWBdVqF2G3" name="wchar_t" stereotype="dataType"/>
+      </uml:Package>
+      <packagedElement xmi:type="uml:Package" xmi:id="uxH0Kjj58pMV6" name="core" comment="Foundational utilities and abstractions shared across the system.">
+        <packagedElement xmi:type="uml:Package" xmi:id="uqKgKLz2U3Uul" name="io" comment="Streaming and buffer management primitives for data movement."/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="uSk7xbpvsFEwK" name="layers" comment="Functional hierarchy defining the sonar firmware stack from hardware to application.">
+        <packagedElement xmi:type="uml:Package" xmi:id="u1I99zkb9xJnh" name="mdl" comment="Modulation and demodulation of acoustic signals between digital and physical domains.">
+          <packagedElement xmi:type="uml:Interface" xmi:id="uFxEA3GRIzItT" name="ICtlWaveformConfig" isAbstract="true" comment="Provides modulation parameters from CTL, including waveform type, carrier frequency, symbol rate, and amplitude scaling. Defines how MDL must construct the waveform and configure its modulation or demodulation chain." stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="uNQw92pmjttur" name="IHalTxWaveformSink" isAbstract="true" comment="Accepts the generated waveform for immediate or scheduled transmission through HAL’s TX path." stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="uUiHDBhRdEarm" name="IHalSampleStream" isAbstract="true" comment="Supplies raw or IF/IQ sampled data captured by HAL, used by MDL for demodulation and signal decoding." stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="u7URccopYdhzT" name="IMdlTxWaveformProv" isAbstract="true" comment="Generates and exposes the digital TX waveform buffer corresponding to the configured modulation scheme (e.g., MONOTONE, CHIRP, PSK, FSK, CUSTOM) for HAL playback." stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="uTyNOEGbCs9Ns" name="IMdlSyncStatus" isAbstract="true" comment="Reports synchronization information, including symbol alignment, carrier lock, and frame boundaries, allowing CTL to monitor demodulator stability." stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="u27Le5MxbL51q" name="IMdlBasebandStream" isAbstract="true" comment="Outputs the demodulated or baseband signal derived from HAL RX samples. Serves as input for DSPL or CTL analysis." stereotype="interface"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="uFDNezXWcdpjm" name="hal" comment="Hardware abstraction; manages physical I/O, timing, and device capabilities.">
+          <packagedElement xmi:type="uml:Interface" xmi:id="uvfSLtM2wrR3O" name="IHalCapabilityQuery" isAbstract="true" comment="Exposes static and semi-static hardware capabilities and limits, such as supported sample rates, channels, max power, supported modulation paths (RAW / IF / IQ)." stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="uAIoIQOKMmSnF" name="IHalSafetyControl" isAbstract="true" comment="Applies and enforces low-level safety constraints: max drive, duty cycle, repetition rate, temperature or voltage derating, and can trigger safe shutdown or fault flags." stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="u30W1SXukFZ7k" name="IHalSampleStream" isAbstract="true" comment="Provides RX sample data as a continuous or block-based stream, with timing and channel metadata, to MDL/DSPL." stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="u59SI0HI129Zi" name="IHalTxWaveformSink" isAbstract="true" comment="Accepts TX waveform buffers plus basic scheduling parameters (start time, duration, repetition) from MDL/CTL and drives the physical transmit chain." stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="urgnMNyBePlyN" name="IMdlTxWaveformProvider" isAbstract="true" comment="Supplies the actual digital TX waveform buffers and format description (sample rate, amplitude format, channel mapping) that HAL must play out." stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="uhBTkLOl52uKs" name="IHalTimingControl" isAbstract="true" stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="uviiAA0PVHuvi" name="IHalFrontEndControl" isAbstract="true" stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="uSCZjrrfg7Qnm" name="IMdlRxPathConfig" isAbstract="true" stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="ua2TSzV9dRcty" name="ICtlTimingProfile" isAbstract="true" stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="uCgyxRlWAWdwu" name="ICtlSafetyLimits" isAbstract="true" stereotype="interface"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="ubyQ8HwFyQKoX" name="ctl" comment="Control layer for environmental factors and transducer management.">
+          <packagedElement xmi:type="uml:Interface" xmi:id="uQ1GpC9CXtYt0" name="ICtlStatusReport" isAbstract="true" comment="Defines modulation and transmission parameters for MDL, including waveform type, frequency, and gain settings." stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="uHKcuSuwcJiUc" name="ICtlMeasurementReport" isAbstract="true" comment="Delivers processed measurement data such as range, velocity, or signal strength to APL." stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="uTTZAFj6QQF5U" name="ICtlProcessingReq" isAbstract="true" comment="Requests specific DSP operations or analysis routines from DSPL, defining input sources and parameters." stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="ur8o7AKfQH1vF" name="ICtlWaveformConfig" isAbstract="true" comment="Receives mode selection and configuration commands from APL to adapt system behavior." stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="uEeYtbt6x6YZt" name="IAplModeControl" isAbstract="true" comment="Communicates operational status, mode, and health information to the Application Layer." stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="uKRXtShLG4CBJ" name="IDsplProcResult" isAbstract="true" comment="Accepts processed data and analysis outputs from DSPL for use in adaptive control and feedback loops." stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="uYAP6LXGOmd6q" name="IMdlBasebandStream" isAbstract="true" comment="Receives demodulated or baseband signal streams from MDL for monitoring, synchronization, or control purposes." stereotype="interface"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="urtrwaxdR2AEv" name="apl" comment="High-level application logic, user interaction, and protocol integration."/>
+        <packagedElement xmi:type="uml:Package" xmi:id="uJzsDa2Pyvwco" name="dspl" comment="Digital signal processing and analysis of received data.">
+          <packagedElement xmi:type="uml:Interface" xmi:id="ueXM34UBq5kKE" name="IDsplProcResult" isAbstract="true" comment="Delivers processed signal outcomes such as echo range, amplitude, or energy profile to CTL or APL for interpretation and reporting." stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="uGe7xXjs3W8dO" name="IDsplQualityMetric" isAbstract="true" comment="Reports signal quality indicators, including SNR, noise floor, and confidence levels, used by CTL for adaptive control and decision-making." stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="ugV8qGJsNHGs8" name="IMdlBasebandStream" isAbstract="true" comment="Provides direct access to raw sampled data from HAL when operating in modes that bypass MDL or require low-level analysis." stereotype="interface"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="u6TAljGMXr0AZ" name="IHalSampleStream" isAbstract="true" comment="Supplies baseband or demodulated signal data from MDL as input for further processing and feature extraction." stereotype="interface"/>
+        </packagedElement>
+      </packagedElement>
+      <xmi:Extension extender="umbrello">
+        <diagrams resolution="96">
+          <diagram xmi.id="ucs4SvWurWPUd" name="class diagram" type="1" documentation="" backgroundcolor="#ffffff" usebackgroundcolor="0" fillcolor="#ffffc0" font="Sans Serif,9,-1,5,50,0,0,0,0,0" griddotcolor="#f7f7f7" linecolor="#990000" linewidth="0" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="100" canvasheight="800" canvaswidth="1100" isopen="0">
+            <widgets/>
+            <messages/>
+            <associations/>
+          </diagram>
+        </diagrams>
+      </xmi:Extension>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Model" xmi:id="Use_Case_View" name="Use Case View" stereotype="folder"/>
+    <packagedElement xmi:type="uml:Model" xmi:id="Component_View" name="Component View" stereotype="folder">
+      <packagedElement xmi:type="uml:Component" xmi:id="ux1HN3cAm4yhJ" name="Application Layer (APL)" executable="0"/>
+      <packagedElement xmi:type="uml:Component" xmi:id="uA4bulLbVTDZ9" name="Control Layer (CTL)" executable="0"/>
+      <packagedElement xmi:type="uml:Component" xmi:id="u28MnLGFGPmsF" name="Digital Signal Processing Layer (DSPL)" executable="0"/>
+      <packagedElement xmi:type="uml:Component" xmi:id="u42g1EXJzvsCE" name="Modulation / Demodulation Layer (MDL)" executable="0"/>
+      <packagedElement xmi:type="uml:Component" xmi:id="utK6wrsUM9CRL" name="Hardware Abstraction Layer (HAL)" executable="0"/>
+      <xmi:Extension extender="umbrello">
+        <diagrams resolution="96">
+          <diagram xmi.id="umAodRPxg2J3x" name="layers-diagram" type="7" documentation="" backgroundcolor="#ffffff" usebackgroundcolor="0" fillcolor="#ffffc0" font="Sans Serif,9,-1,5,50,0,0,0,0,0" griddotcolor="#f7f7f7" linecolor="#990000" linewidth="0" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="107.472" canvasheight="882.875" canvaswidth="805.656" isopen="1">
+            <widgets>
+              <componentwidget xmi.id="u42g1EXJzvsCE" localid="uLGSodF8hqvV9" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Sans Serif,9,-1,5,50,0,0,0,0,0" autoresize="1" x="475.656" y="610.527" width="330" height="58" isinstance="0" showstereotype="2"/>
+              <componentwidget xmi.id="uA4bulLbVTDZ9" localid="uHopWRxfRHzlA" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Sans Serif,9,-1,5,50,0,0,0,0,0" autoresize="0" x="178.548" y="240.833" width="632.279" height="74.0465" isinstance="0" showstereotype="2"/>
+              <componentwidget xmi.id="utK6wrsUM9CRL" localid="ukfPeXdAzVgly" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Sans Serif,9,-1,5,50,0,0,0,0,0" autoresize="0" x="178.684" y="769.876" width="632.833" height="82.2926" isinstance="0" showstereotype="2"/>
+              <componentwidget xmi.id="u28MnLGFGPmsF" localid="uXQIshR4eNlK3" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Sans Serif,9,-1,5,50,0,0,0,0,0" autoresize="0" x="365.636" y="413.888" width="447.035" height="80.7326" isinstance="0" showstereotype="2"/>
+              <componentwidget xmi.id="ux1HN3cAm4yhJ" localid="ub3WJyc6QElim" textcolor="#000000" linecolor="#990000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffffc0" font="Sans Serif,9,-1,5,50,0,0,0,0,0" autoresize="1" x="383.866" y="84.1967" width="219" height="58" isinstance="0" showstereotype="2"/>
+            </widgets>
+            <messages/>
+            <associations/>
+          </diagram>
+        </diagrams>
+      </xmi:Extension>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Model" xmi:id="Deployment_View" name="Deployment View" stereotype="folder"/>
+    <packagedElement xmi:type="uml:Model" xmi:id="Entity_Relationship_Model" name="Entity Relationship Model" stereotype="folder"/>
+  </uml:Model>
+  <xmi:Extension extender="umbrello">
+    <docsettings viewid="umAodRPxg2J3x" documentation="" uniqueid="uGwuFhMAigGVt"/>
+    <listview>
+      <listitem id="Views" type="800" open="1">
+        <listitem id="Component_View" type="821" open="1">
+          <listitem id="ux1HN3cAm4yhJ" type="822" open="1"/>
+          <listitem id="uA4bulLbVTDZ9" type="822" open="1"/>
+          <listitem id="u28MnLGFGPmsF" type="822" open="1"/>
+          <listitem id="utK6wrsUM9CRL" type="822" open="1"/>
+          <listitem id="umAodRPxg2J3x" type="819" label="layers-diagram" open="0"/>
+          <listitem id="u42g1EXJzvsCE" type="822" open="1"/>
+        </listitem>
+        <listitem id="Deployment_View" type="827" open="1"/>
+        <listitem id="Entity_Relationship_Model" type="836" open="1"/>
+        <listitem id="Logical_View" type="801" open="1">
+          <listitem id="ucs4SvWurWPUd" type="807" label="class diagram" open="0"/>
+          <listitem id="uxH0Kjj58pMV6" type="818" open="1">
+            <listitem id="uqKgKLz2U3Uul" type="818" open="1"/>
+          </listitem>
+          <listitem id="Datatypes" type="830" open="0">
+            <listitem id="uboQSrRFAQiVk" type="829" open="0"/>
+            <listitem id="uee19AMwF9rVN" type="829" open="0"/>
+            <listitem id="upQjkqs2JxObc" type="829" open="0"/>
+            <listitem id="ur5vEsj9FtK9r" type="829" open="0"/>
+            <listitem id="u4wSXq6f7D0zV" type="829" open="0"/>
+            <listitem id="usYwSLHot6uf5" type="829" open="0"/>
+            <listitem id="ubNn8FDEfzM0a" type="829" open="0"/>
+            <listitem id="u5oAXgjX4UOiW" type="829" open="0"/>
+            <listitem id="uRmmfu3fnvaIF" type="829" open="0"/>
+            <listitem id="uopaPKMZE0vmE" type="829" open="0"/>
+            <listitem id="u5HDadBgoQawj" type="829" open="0"/>
+            <listitem id="usdTfnTOQHqyY" type="829" open="0"/>
+            <listitem id="uwolGFrsXODR1" type="829" open="0"/>
+            <listitem id="uhqtOpVNuk77Q" type="829" open="0"/>
+            <listitem id="uFozrpnB4TgZQ" type="829" open="0"/>
+            <listitem id="uVcrVshdtay8S" type="829" open="0"/>
+            <listitem id="uFcoUo1B6jfuH" type="829" open="0"/>
+            <listitem id="uNQuWBdVqF2G3" type="829" open="0"/>
+          </listitem>
+          <listitem id="uSk7xbpvsFEwK" type="818" open="1">
+            <listitem id="urtrwaxdR2AEv" type="818" open="0"/>
+            <listitem id="ubyQ8HwFyQKoX" type="818" open="1">
+              <listitem id="uEeYtbt6x6YZt" type="817" open="1"/>
+              <listitem id="uHKcuSuwcJiUc" type="817" open="1"/>
+              <listitem id="uTTZAFj6QQF5U" type="817" open="1"/>
+              <listitem id="uQ1GpC9CXtYt0" type="817" open="1"/>
+              <listitem id="ur8o7AKfQH1vF" type="817" open="1"/>
+              <listitem id="uKRXtShLG4CBJ" type="817" open="1"/>
+              <listitem id="uYAP6LXGOmd6q" type="817" open="1"/>
+            </listitem>
+            <listitem id="uJzsDa2Pyvwco" type="818" open="1">
+              <listitem id="ueXM34UBq5kKE" type="817" open="1"/>
+              <listitem id="uGe7xXjs3W8dO" type="817" open="1"/>
+              <listitem id="u6TAljGMXr0AZ" type="817" open="1"/>
+              <listitem id="ugV8qGJsNHGs8" type="817" open="1"/>
+            </listitem>
+            <listitem id="uFDNezXWcdpjm" type="818" open="1">
+              <listitem id="uCgyxRlWAWdwu" type="817" open="1"/>
+              <listitem id="ua2TSzV9dRcty" type="817" open="1"/>
+              <listitem id="uvfSLtM2wrR3O" type="817" open="0"/>
+              <listitem id="uviiAA0PVHuvi" type="817" open="1"/>
+              <listitem id="uAIoIQOKMmSnF" type="817" open="0"/>
+              <listitem id="u30W1SXukFZ7k" type="817" open="0"/>
+              <listitem id="uhBTkLOl52uKs" type="817" open="1"/>
+              <listitem id="u59SI0HI129Zi" type="817" open="0"/>
+              <listitem id="uSCZjrrfg7Qnm" type="817" open="1"/>
+              <listitem id="urgnMNyBePlyN" type="817" open="0"/>
+            </listitem>
+            <listitem id="u1I99zkb9xJnh" type="818" open="1">
+              <listitem id="uFxEA3GRIzItT" type="817" open="1"/>
+              <listitem id="uUiHDBhRdEarm" type="817" open="1"/>
+              <listitem id="uNQw92pmjttur" type="817" open="1"/>
+              <listitem id="u27Le5MxbL51q" type="817" open="1"/>
+              <listitem id="uTyNOEGbCs9Ns" type="817" open="1"/>
+              <listitem id="u7URccopYdhzT" type="817" open="1"/>
+            </listitem>
+          </listitem>
+        </listitem>
+        <listitem id="Use_Case_View" type="802" open="1"/>
+      </listitem>
+    </listview>
+    <codegeneration>
+      <codegenerator language="C++"/>
+    </codegeneration>
+  </xmi:Extension>
+</xmi:XMI>
